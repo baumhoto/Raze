@@ -580,6 +580,17 @@ void GameInterface::NewGame(MapRecord *map, int skill, bool)
 //
 //---------------------------------------------------------------------------
 
+int GameInterface::GetCurrentSkill()
+{
+    return Skill;
+}
+
+//---------------------------------------------------------------------------
+//
+//
+//
+//---------------------------------------------------------------------------
+
 void GameInterface::Ticker(void)
 {
     int i;
@@ -741,11 +752,6 @@ GameStats GameInterface::getStats()
 {
 	PLAYERp pp = Player + myconnectindex;
 	return { pp->Kills, TotalKillable, pp->SecretsFound, LevelSecrets, PlayClock / 120, 0 };
-}
-
-void GameInterface::FreeGameData()
-{
-    TerminateLevel();
 }
 
 void GameInterface::FreeLevelData()
