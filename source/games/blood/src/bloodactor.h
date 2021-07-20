@@ -1,5 +1,7 @@
 #pragma once
 
+#include "nnexts.h"
+
 BEGIN_BLD_NS
 
 extern int cumulDamage[kMaxXSprites];

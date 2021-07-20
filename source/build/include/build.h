@@ -13,7 +13,7 @@
 
 #define TRANSPARENT_INDEX 0
 
-static_assert('\xff' == 255, "Char must be unsigned!");
+//baumhot static_assert('\xff' == 255, "Char must be unsigned!");
 
 #include "compat.h"
 #include "printf.h"

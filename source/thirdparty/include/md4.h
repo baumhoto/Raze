@@ -41,6 +41,8 @@ void md4init(MD4_CTX *);
 void md4block(MD4_CTX *, const unsigned char *, unsigned int);
 void md4finish(unsigned char [16], MD4_CTX *);
 
+
+
 #ifdef __cplusplus
 }
 #endif

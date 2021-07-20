@@ -35,6 +35,7 @@
 #define __I_MUSIC_H__
 
 #include "c_cvars.h"
+#include <math.h>
 
 class FileReader;
 struct FOptionValues;
@@ -58,7 +59,7 @@ EXTERN_CVAR(Float, snd_musicvolume)
 
 inline float AmplitudeTodB(float amplitude)
 {
-	return 20.0f * log10(amplitude);
+    return 20.0f * log10(amplitude);
 }
 
 inline float dBToAmplitude(float dB)

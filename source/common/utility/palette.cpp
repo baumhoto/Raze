@@ -41,6 +41,8 @@
 #include "printf.h"
 #include "templates.h"
 #include "m_png.h"
+#include <float.h>
+#include <math.h>
 
 /****************************/
 /* Palette management stuff */

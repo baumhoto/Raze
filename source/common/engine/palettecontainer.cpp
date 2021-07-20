@@ -40,6 +40,7 @@
 #include "templates.h"
 #include "palettecontainer.h"
 #include "files.h"
+#include <math.h>
 
 PaletteContainer GPalette;
 FColorMatcher ColorMatcher;

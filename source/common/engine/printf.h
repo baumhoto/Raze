@@ -1,5 +1,6 @@
 #pragma once
 #include <stdarg.h>
+#include <stddef.h>
 
 #if defined __GNUC__ || defined __clang__
 # define ATTRIBUTE(attrlist) __attribute__(attrlist)

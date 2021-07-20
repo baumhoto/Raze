@@ -39,6 +39,7 @@
 #include "cmdlib.h"
 #include "printf.h"
 #include "engineerrors.h"
+#include "gi.h"
 
 #include "version.h"	// for GAMENAME
 
@@ -48,14 +49,22 @@ FString GetUserFile (const char *file)
 	FString path;
 	struct stat info;
 
-	path = NicePath("$HOME/" GAME_DIR "/");
+#ifdef IOS
+    path = NicePath("$HOME/Documents/config/");
+#else
+    path = NicePath("$HOME/" GAME_DIR "/");
+#endif
 
 	if (stat (path, &info) == -1)
 	{
 		struct stat extrainfo;
 
 		// Sanity check for $HOME/.config
-		FString configPath = NicePath("$HOME/.config/");
+#ifdef IOS
+        FString configPath = NicePath("$HOME/Documents/config/");
+#else
+        FString configPath = NicePath("$HOME/.config/");
+ #endif
 		if (stat (configPath, &extrainfo) == -1)
 		{
 			if (mkdir (configPath, S_IRUSR | S_IWUSR | S_IXUSR) == -1)
@@ -67,7 +76,7 @@ FString GetUserFile (const char *file)
 		{
 			I_FatalError ("$HOME/.config must be a directory");
 		}
-
+#ifndef IOS
 		// This can be removed after a release or two
 		// Transfer the old zdoom directory to the new location
 		bool moved = false;
@@ -88,6 +97,7 @@ FString GetUserFile (const char *file)
 			I_FatalError ("Failed to create %s directory:\n%s",
 				path.GetChars(), strerror (errno));
 		}
+#endif
 	}
 	else
 	{
@@ -112,7 +122,11 @@ FString M_GetAppDataPath(bool create)
 {
 	// Don't use GAME_DIR and such so that ZDoom and its child ports can
 	// share the node cache.
-	FString path = NicePath("$HOME/.config/" GAMENAMELOWERCASE);
+#ifdef IOS
+   FString path = NicePath("$HOME/Documents/config/" GAMENAMELOWERCASE);
+#else
+    FString path = NicePath("$HOME/.config/" GAMENAMELOWERCASE);
+#endif
 	if (create)
 	{
 		CreatePath(path);
@@ -132,7 +146,11 @@ FString M_GetCachePath(bool create)
 {
 	// Don't use GAME_DIR and such so that ZDoom and its child ports can
 	// share the node cache.
-	FString path = NicePath("$HOME/.config/zdoom/cache");
+#ifdef IOS
+    FString path = NicePath("$HOME/Documents/config/zdoom/cache");
+#else
+    FString path = NicePath("$HOME/.config/zdoom/cache");
+#endif
 	if (create)
 	{
 		CreatePath(path);
@@ -191,7 +209,11 @@ FString M_GetScreenshotsPath()
 
 FString M_GetSavegamesPath()
 {
-	return NicePath("$HOME/" GAME_DIR "/");
+#ifdef IOS
+    return NicePath("$HOME/Documents/Savegames/dummy/");
+#else
+    return NicePath("$HOME/" GAME_DIR "/");
+#endif
 }
 
 //===========================================================================

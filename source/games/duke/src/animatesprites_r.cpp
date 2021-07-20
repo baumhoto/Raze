@@ -33,6 +33,7 @@ Prepared for public release: 03/21/2003 - Charlie Wiederhold, 3D Realms
 #include "prediction.h"
 #include "dukeactor.h"
 #include "gamefuncs.h"
+#include "build.h"
 
 BEGIN_DUKE_NS
 

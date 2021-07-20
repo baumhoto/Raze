@@ -188,6 +188,12 @@ int main (int argc, char **argv)
 	{
 		progdir = "./";
 	}
+    
+#ifdef IOS
+        FString path = FString(getenv("HOME"));
+        path.AppendFormat("%s", "/Documents");
+        progdir = path;
+#endif
 	
 	I_StartupJoysticks();
 

@@ -53,7 +53,7 @@
 
 FGameConfigFile::FGameConfigFile ()
 {
-#ifdef __APPLE__
+#ifdef defined(__APPLE__) && defined(!IOS)
 	FString user_docs, user_app_support, local_app_support;
 	M_GetMacSearchDirectories(user_docs, user_app_support, local_app_support);
 #endif
@@ -78,7 +78,7 @@ FGameConfigFile::FGameConfigFile ()
 		SetSection ("GameSearch.Directories", true);
 		SetValueForKey ("Path", ".", true);
 		SetValueForKey ("Path", "./*", true);
-#ifdef __APPLE__
+#ifdef defined(__APPLE__) && defined(!IOS)
 		SetValueForKey ("Path", user_docs + "/*", true);
 		SetValueForKey ("Path", user_app_support + "/EDuke32", true);
 		SetValueForKey ("Path", user_app_support + "/JFDuke32", true);
@@ -90,7 +90,13 @@ FGameConfigFile::FGameConfigFile ()
 		SetValueForKey ("Path", local_app_support + "/NBlood", true);
 		SetValueForKey("Path", local_app_support + "/JFSW", true);
 		SetValueForKey("Path", local_app_support + "/VoidSW", true);
-
+#elseif defined(IOS)
+        SetValueForKey ("Path", "$HOME/Documents", true);
+        SetValueForKey ("Path", "$HOME/Documents/EDuke32", true);
+        SetValueForKey ("Path", "$HOME/Documents/JFDuke32", true);
+        SetValueForKey ("Path", "$HOME/Documents/NBlood", true);
+        SetValueForKey("Path", "$HOME/Documents/JFSW", true);
+        SetValueForKey("Path", "$HOME/Documents/VoidSW", true);
 #elif !defined(__unix__)
 		SetValueForKey ("Path", "$PROGDIR", true);
 		SetValueForKey ("Path", "$PROGDIR/*", true);
@@ -122,11 +128,13 @@ FGameConfigFile::FGameConfigFile ()
 	if (!SetSection ("FileSearch.Directories"))
 	{
 		SetSection ("FileSearch.Directories", true);
-#ifdef __APPLE__
+#ifdef defined(__APPLE__) && defined(!IOS)
 		SetValueForKey ("Path", user_docs, true);
 		SetValueForKey ("Path", user_app_support, true);
 		SetValueForKey ("Path", "$PROGDIR", true);
 		SetValueForKey ("Path", local_app_support, true);
+#elseif defined(IOS)
+        SetValueForKey ("Path", "$HOME/Documents", true);
 #elif !defined(__unix__)
 		SetValueForKey ("Path", "$PROGDIR", true);
 		SetValueForKey ("Path", "$GAMEDIR", true);
@@ -146,11 +154,13 @@ FGameConfigFile::FGameConfigFile ()
 	if (!SetSection("SoundfontSearch.Directories"))
 	{
 		SetSection("SoundfontSearch.Directories", true);
-#ifdef __APPLE__
+#ifdef defined(__APPLE__) && defined(!IOS)
 		SetValueForKey("Path", user_docs + "/soundfonts", true);
 		SetValueForKey("Path", user_app_support + "/soundfonts", true);
 		SetValueForKey("Path", "$PROGDIR/soundfonts", true);
 		SetValueForKey("Path", local_app_support + "/soundfonts", true);
+#elseif defined(IOS)
+        SetValueForKey ("Path", "$HOME/Documents/soundfonts", true);
 #elif !defined(__unix__)
 		SetValueForKey("Path", "$PROGDIR/soundfonts", true);
 #else

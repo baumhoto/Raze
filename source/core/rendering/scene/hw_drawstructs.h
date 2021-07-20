@@ -14,6 +14,7 @@
 #include "gamecontrol.h"
 #include "hw_renderstate.h"
 #include "hw_cvars.h"
+#include "polymost.h"
 
 #pragma warning(disable:4244) // this gets a bit annoying in the renderer...
 

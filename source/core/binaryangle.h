@@ -40,7 +40,7 @@
 #include "m_fixed.h"
 #include "xs_Float.h"	// needed for reliably overflowing float->int conversions.
 #include "serializer.h"
-#include "math/cmath.h"
+#include "cmath.h"
 #include "templates.h"
 
 class FSerializer;

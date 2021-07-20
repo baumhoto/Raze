@@ -1,7 +1,7 @@
 #pragma once
-
 #include <stdint.h>
 #include "mdsprite.h"
+#include "model_kvx.h"
 
 // We still need the relation to mdmodel_t as long as the model code hasn't been redone.
 struct voxmodel_t : public mdmodel_t
