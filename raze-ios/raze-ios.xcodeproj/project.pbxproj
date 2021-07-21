@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D21F0F0926A759F0008B4E34 /* zcc-parse.c in Sources */ = {isa = PBXBuildFile; fileRef = D21F0F0726A759F0008B4E34 /* zcc-parse.c */; };
 		D25F38FB26A68CEC002CBE6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D25F38FA26A68CEC002CBE6A /* Assets.xcassets */; };
 		D25F38FE26A68CEC002CBE6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D25F38FC26A68CEC002CBE6A /* LaunchScreen.storyboard */; };
-		D25F3DBB26A68D16002CBE6A /* CMakeLists.txt in Resources */ = {isa = PBXBuildFile; fileRef = D25F390626A68D15002CBE6A /* CMakeLists.txt */; };
 		D25F3DBC26A68D16002CBE6A /* cheathandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D25F390826A68D15002CBE6A /* cheathandler.cpp */; };
 		D25F3DBD26A68D16002CBE6A /* secrets.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D25F390A26A68D15002CBE6A /* secrets.cpp */; };
 		D25F3DBE26A68D16002CBE6A /* s_advsound.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D25F390C26A68D15002CBE6A /* s_advsound.cpp */; };
@@ -341,7 +341,6 @@
 		D25F3FF726A68D16002CBE6A /* all_r.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D25F3D7226A68D16002CBE6A /* all_r.cpp */; };
 		D25F3FF826A68D16002CBE6A /* all_d.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D25F3D7326A68D16002CBE6A /* all_d.cpp */; };
 		D25F402426A68D16002CBE6A /* md4.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D25F3DBA26A68D16002CBE6A /* md4.cpp */; };
-		D25F402926A6903F002CBE6A /* zcc-parse.c in Sources */ = {isa = PBXBuildFile; fileRef = D25F402726A6903F002CBE6A /* zcc-parse.c */; };
 		D25F402D26A6C0E4002CBE6A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D25F402C26A6C0E4002CBE6A /* AudioToolbox.framework */; };
 		D25F402F26A6C0EC002CBE6A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D25F402E26A6C0EC002CBE6A /* AVFoundation.framework */; };
 		D25F403126A6C0F3002CBE6A /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D25F403026A6C0F3002CBE6A /* CoreAudio.framework */; };
@@ -389,11 +388,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D21F0F0626A75905008B4E34 /* zmusic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = zmusic.h; path = ../../bin/windows/zmusic/include/zmusic.h; sourceTree = "<group>"; };
+		D21F0F0726A759F0008B4E34 /* zcc-parse.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "zcc-parse.c"; sourceTree = "<group>"; };
+		D21F0F0826A759F0008B4E34 /* zcc-parse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "zcc-parse.h"; sourceTree = "<group>"; };
 		D25F38EE26A68CEC002CBE6A /* raze-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "raze-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D25F38FA26A68CEC002CBE6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D25F38FD26A68CEC002CBE6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D25F38FF26A68CEC002CBE6A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D25F390626A68D15002CBE6A /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
 		D25F390826A68D15002CBE6A /* cheathandler.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cheathandler.cpp; sourceTree = "<group>"; };
 		D25F390926A68D15002CBE6A /* inputstate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inputstate.h; sourceTree = "<group>"; };
 		D25F390A26A68D15002CBE6A /* secrets.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = secrets.cpp; sourceTree = "<group>"; };
@@ -1086,9 +1087,6 @@
 		D25F3DB826A68D16002CBE6A /* debugbreak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = debugbreak.h; sourceTree = "<group>"; };
 		D25F3DBA26A68D16002CBE6A /* md4.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = md4.cpp; sourceTree = "<group>"; };
 		D25F402626A68FDF002CBE6A /* gdtoa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gdtoa.h; path = ../../libraries/gdtoa/gdtoa.h; sourceTree = "<group>"; };
-		D25F402726A6903F002CBE6A /* zcc-parse.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "zcc-parse.c"; path = "../../../../build/source/zcc-parse.c"; sourceTree = "<group>"; };
-		D25F402826A6903F002CBE6A /* zcc-parse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "zcc-parse.h"; path = "../../../../build/source/zcc-parse.h"; sourceTree = "<group>"; };
-		D25F402A26A690D0002CBE6A /* zmusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = zmusic.h; path = ../../bin/windows/zmusic/include/zmusic.h; sourceTree = "<group>"; };
 		D25F402C26A6C0E4002CBE6A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D25F402E26A6C0EC002CBE6A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D25F403026A6C0F3002CBE6A /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
@@ -1190,7 +1188,6 @@
 		D25F390526A68D15002CBE6A /* source */ = {
 			isa = PBXGroup;
 			children = (
-				D25F390626A68D15002CBE6A /* CMakeLists.txt */,
 				D25F390726A68D15002CBE6A /* core */,
 				D25F398C26A68D15002CBE6A /* platform */,
 				D25F399726A68D15002CBE6A /* glbackend */,
@@ -1615,8 +1612,8 @@
 		D25F3A0226A68D16002CBE6A /* frontend */ = {
 			isa = PBXGroup;
 			children = (
-				D25F402726A6903F002CBE6A /* zcc-parse.c */,
-				D25F402826A6903F002CBE6A /* zcc-parse.h */,
+				D21F0F0726A759F0008B4E34 /* zcc-parse.c */,
+				D21F0F0826A759F0008B4E34 /* zcc-parse.h */,
 				D25F3A0326A68D16002CBE6A /* zcc_exprlist.h */,
 				D25F3A0426A68D16002CBE6A /* zcc_compile.cpp */,
 				D25F3A0526A68D16002CBE6A /* ast.cpp */,
@@ -2540,7 +2537,7 @@
 		D25F402526A68FC7002CBE6A /* headers */ = {
 			isa = PBXGroup;
 			children = (
-				D25F402A26A690D0002CBE6A /* zmusic.h */,
+				D21F0F0626A75905008B4E34 /* zmusic.h */,
 				D25F402626A68FDF002CBE6A /* gdtoa.h */,
 			);
 			path = headers;
@@ -2640,7 +2637,6 @@
 			files = (
 				D25F3EED26A68D16002CBE6A /* sc_man_scanner.re in Resources */,
 				D25F3E5626A68D16002CBE6A /* readme.md in Resources */,
-				D25F3DBB26A68D16002CBE6A /* CMakeLists.txt in Resources */,
 				D25F3E0426A68D16002CBE6A /* game.xpm in Resources */,
 				D25F38FE26A68CEC002CBE6A /* LaunchScreen.storyboard in Resources */,
 				D25F3F1826A68D16002CBE6A /* COPYING in Resources */,
@@ -2726,7 +2722,6 @@
 				D25F3DDF26A68D16002CBE6A /* raze_sound.cpp in Sources */,
 				D25F3F3326A68D16002CBE6A /* x86.cpp in Sources */,
 				D25F3DF726A68D16002CBE6A /* sectorgeometry.cpp in Sources */,
-				D25F402926A6903F002CBE6A /* zcc-parse.c in Sources */,
 				D25F3DF026A68D16002CBE6A /* hw_drawlistadd.cpp in Sources */,
 				D25F3EBA26A68D16002CBE6A /* vk_imagetransition.cpp in Sources */,
 				D25F3F2126A68D16002CBE6A /* c_cvars.cpp in Sources */,
@@ -2899,6 +2894,7 @@
 				D25F3E3226A68D16002CBE6A /* hq2x.cpp in Sources */,
 				D25F3E9326A68D16002CBE6A /* voxels.cpp in Sources */,
 				D25F3DF426A68D16002CBE6A /* hw_clipper.cpp in Sources */,
+				D21F0F0926A759F0008B4E34 /* zcc-parse.c in Sources */,
 				D25F3E8426A68D16002CBE6A /* file_directory.cpp in Sources */,
 				D25F3EF826A68D16002CBE6A /* m_random.cpp in Sources */,
 				D25F3E0C26A68D16002CBE6A /* playmve.cpp in Sources */,
