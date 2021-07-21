@@ -1,5 +1,7 @@
 # Raze fork for iPadOS WIP
 
+![raze-ipad](https://github.com/baumhoto/Raze/blob/43c7e18d4c011fa605f308147d8ca1c40966f13c/raze-ios/github/raze_ipados.jpg)
+
 Be warned this is a barely working port and there is lots of stuff that doesn't work properly but it runs and can be controlled via mouse/keyboard on iPadOS.
 
 - app doesn exit cleanly (will hang) force quit via app switcher
@@ -16,7 +18,7 @@ On a Mac
 - open xcode project in raze/raze-ios/raze-ios.xcodeproj
 - adjust developemt team
 - deploy to device
-- start app first time (app will crash)-> because data files can not be found but now there should be a raze folder in the Files App under "On my iPad". there copy all the files from the support folder (gzdoom/support)
+- start app first time (app will crash)-> because data files can not be found but now there should be a raze-ios folder in the Files App under "On my iPad". there copy all the files from the support folder (gzdoom/support)
 - afterwards add an GRP file of your choice e.g  sw.grp
 - Start app again. Controlling the menu via keyboard works. Start game and use WSAD/mouse to run game. Currently saving is an issue as text input is not working.
 
