@@ -1,3 +1,26 @@
+# Raze fork for iPadOS WIP
+
+Be warned this is a barely working port and there is lots of stuff that doesn't work properly but it runs and can be controlled via mouse/keyboard on iPadOS.
+
+- app doesn exit cleanly (will hang) force quit via app switcher
+- keyboard text input in console and menu (e.g. savegames) doesn't work...
+- the full settings menu is available but be warned that things might break.. (just delete the gzdoom.ini file in the config folder if that happens)
+- gamepad support does not work
+- lots of other stuff
+
+
+
+On a Mac
+- checkout repo
+- install sdl2 via brew: brew install sdl2
+- open xcode project in gzdoom/gzdoom/gzdoom.xcodeproj
+- adjust developemt team
+- deploy to device
+- start app first time (app will crash)-> because data files can not be found but now there should be a raze folder in the Files App under "On my iPad". there copy all the files from the support folder (gzdoom/support)
+- afterwards add an GRP file of your choice e.g  sw.grp
+- Start app again. Controlling the menu via keyboard works. Start game and use WSAD/mouse to run game. Currently saving is an issue as text input is not working.
+
+
 # Welcome to Raze!
 
 [![Build Status](https://github.com/coelckers/Raze/workflows/Continuous%20Integration/badge.svg)](https://github.com/coelckers/Raze/actions?query=workflow%3A%22Continuous+Integration%22)
