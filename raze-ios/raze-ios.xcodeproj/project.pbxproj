@@ -3121,7 +3121,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TY2VJ4HK3Y;
+				DEVELOPMENT_TEAM = JD25SHA7WV;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					NO_SSE,
@@ -3236,7 +3236,7 @@
 					"-I/Users/tobi/Developer/repos/Games/Raze/libraries/glslang/glslang/..",
 					"-I/Users/tobi/Developer/repos/Games/Raze/libraries/glslang/spirv/..",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.baumhoto.raze-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.baumhoto.raze-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "raze-ios/raze-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -3253,7 +3253,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TY2VJ4HK3Y;
+				DEVELOPMENT_TEAM = JD25SHA7WV;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					NO_SSE,
@@ -3368,7 +3368,7 @@
 					"-I/Users/tobi/Developer/repos/Games/Raze/libraries/glslang/glslang/..",
 					"-I/Users/tobi/Developer/repos/Games/Raze/libraries/glslang/spirv/..",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.baumhoto.raze-ios";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.baumhoto.raze-ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "raze-ios/raze-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
