@@ -13,7 +13,7 @@ Be warned this is a barely working port and there is lots of stuff that doesn't 
 On a Mac
 - checkout repo
 - install sdl2 via brew: brew install sdl2
-- open xcode project in gzdoom/gzdoom/gzdoom.xcodeproj
+- open xcode project in raze/raze-ios/raze-ios.xcodeproj
 - adjust developemt team
 - deploy to device
 - start app first time (app will crash)-> because data files can not be found but now there should be a raze folder in the Files App under "On my iPad". there copy all the files from the support folder (gzdoom/support)
