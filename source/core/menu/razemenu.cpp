@@ -31,6 +31,7 @@
 **---------------------------------------------------------------------------
 **
 */
+#include <SDL.h>
 
 #include "c_dispatch.h"
 #include "d_gui.h"
@@ -168,6 +169,7 @@ bool M_SetSpecialMenu(FName& menu, int param)
 			M_StartMessage(GStrings("SAVEDEAD"), 1, NAME_None);
 			return true;
 		}
+            SDL_StartTextInput();
 		break;
 
 	case NAME_Quitmenu:
@@ -208,6 +210,9 @@ void System_MenuClosed()
 {
 	GSnd->SetSfxPaused(false, PAUSESFX_MENU);
 	inputState.ClearAllInput();
+    if(SDL_IsTextInputActive()) {
+        SDL_StopTextInput();
+    }
 	gi->MenuClosed();
 }
 
@@ -693,6 +698,7 @@ CCMD(opensavemenu)
 	{
 		M_StartControlPanel(true);
 		M_SetMenu(NAME_Savegamemenu);
+        SDL_StartTextInput();
 	}
 }
 

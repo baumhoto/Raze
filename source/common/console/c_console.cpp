@@ -33,6 +33,7 @@
 */
 
 #include <string>
+#include <SDL.h>
 
 #include "templates.h"
 #include "version.h"
@@ -732,6 +733,7 @@ void C_ToggleConsole ()
 	{
 		if (sysCallbacks.ToggleFullConsole) sysCallbacks.ToggleFullConsole();
 		togglestate = c_down;
+        SDL_StartTextInput();
 	}
 	else if (!chatmodeon && (ConsoleState == c_up || ConsoleState == c_rising) && menuactive == MENU_Off)
 	{
@@ -759,6 +761,7 @@ void C_HideConsole ()
 		ConsoleState = c_up;
 		ConBottom = 0;
 		HistPos = NULL;
+        SDL_StopTextInput();
 	}
 }
 
