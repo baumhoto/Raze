@@ -357,7 +357,6 @@
 		D25F404F26A6C13E002CBE6A /* liblzma.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D25F404326A6C132002CBE6A /* liblzma.a */; };
 		D25F405026A6C13E002CBE6A /* libMoltenVK.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D25F404526A6C132002CBE6A /* libMoltenVK.dylib */; };
 		D25F405126A6C13E002CBE6A /* libMoltenVK.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D25F404526A6C132002CBE6A /* libMoltenVK.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
-		D25F405226A6C13E002CBE6A /* libogg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D25F404626A6C132002CBE6A /* libogg.a */; };
 		D25F405326A6C13E002CBE6A /* libOGLCompiler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D25F404026A6C132002CBE6A /* libOGLCompiler.a */; };
 		D25F405426A6C13E002CBE6A /* libopenal.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D25F404A26A6C132002CBE6A /* libopenal.1.dylib */; };
 		D25F405526A6C13E002CBE6A /* libopenal.1.dylib in Embed Libraries */ = {isa = PBXBuildFile; fileRef = D25F404A26A6C132002CBE6A /* libopenal.1.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
@@ -1142,7 +1141,6 @@
 				D25F404D26A6C13E002CBE6A /* libglslang.a in Frameworks */,
 				D25F403526A6C102002CBE6A /* CoreHaptics.framework in Frameworks */,
 				D25F402F26A6C0EC002CBE6A /* AVFoundation.framework in Frameworks */,
-				D25F405226A6C13E002CBE6A /* libogg.a in Frameworks */,
 				D25F405026A6C13E002CBE6A /* libMoltenVK.dylib in Frameworks */,
 				D25F405E26A6D623002CBE6A /* libvpx.a in Frameworks */,
 				D25F403B26A6C11B002CBE6A /* Metal.framework in Frameworks */,
