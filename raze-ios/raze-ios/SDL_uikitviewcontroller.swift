@@ -16,9 +16,9 @@ extension SDL_uikitviewcontroller {
     open override var prefersStatusBarHidden: Bool {
         return true
     }
-    
+
     open override var preferredScreenEdgesDeferringSystemGestures: UIRectEdge {
-        return .bottom
+        return .all
     }
     
     open override var prefersHomeIndicatorAutoHidden: Bool {
