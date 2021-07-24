@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dEp-uH-sqS">
-                                <rect key="frame" x="-81.5" y="82" width="1529" height="860"/>
+                                <rect key="frame" x="-227" y="0.0" width="1820" height="1024"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="dEp-uH-sqS" secondAttribute="height" multiplier="16:9" id="aOg-Ke-SQQ"/>
                                 </constraints>
@@ -30,7 +30,7 @@
                         <constraints>
                             <constraint firstItem="dEp-uH-sqS" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="4V6-VX-6ME"/>
                             <constraint firstItem="dEp-uH-sqS" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Epi-Wa-jsr"/>
-                            <constraint firstItem="dEp-uH-sqS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="58" id="mJP-Va-AEd"/>
+                            <constraint firstAttribute="top" secondItem="dEp-uH-sqS" secondAttribute="top" id="mJP-Va-AEd"/>
                         </constraints>
                     </view>
                 </viewController>
