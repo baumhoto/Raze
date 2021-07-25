@@ -742,12 +742,14 @@ void C_ToggleConsole ()
 		TabbedLast = false;
 		TabbedList = false;
 		togglestate = c_falling;
+        SDL_StartTextInput();
 	}
 	else if (gamestate != GS_FULLCONSOLE && gamestate != GS_STARTUP)
 	{
 		ConsoleState = c_rising;
 		C_FlushDisplay();
 		togglestate = c_rising;
+        SDL_StopTextInput();
 	}
 	else return;
 	// This must be done as an event callback because the client code does not control the console toggling.
