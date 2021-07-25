@@ -366,6 +366,7 @@
 		D25F405C26A6C1D1002CBE6A /* libzmusiclite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D25F405B26A6C1C4002CBE6A /* libzmusiclite.a */; };
 		D25F405E26A6D623002CBE6A /* libvpx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D25F405D26A6D615002CBE6A /* libvpx.a */; };
 		D27D0AF526A71C8E00B22804 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D27D0AF426A71C8E00B22804 /* OpenGLES.framework */; };
+		D28659DF26ADB96A0040750C /* pl_ios.mm in Sources */ = {isa = PBXBuildFile; fileRef = D28659DE26ADB96A0040750C /* pl_ios.mm */; };
 		D29889D226A7201300F4007E /* libSDL2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D25F404126A6C132002CBE6A /* libSDL2.a */; };
 		D29889D426A7205E00F4007E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29889D326A7205E00F4007E /* QuartzCore.framework */; };
 		D29889D726A72D1B00F4007E /* SDL_uikitviewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29889D526A72D1B00F4007E /* SDL_uikitviewcontroller.swift */; };
@@ -1111,6 +1112,7 @@
 		D25F405B26A6C1C4002CBE6A /* libzmusiclite.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libzmusiclite.a; path = libs/libzmusiclite.a; sourceTree = "<group>"; };
 		D25F405D26A6D615002CBE6A /* libvpx.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvpx.a; path = libs/libvpx.a; sourceTree = "<group>"; };
 		D27D0AF426A71C8E00B22804 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		D28659DE26ADB96A0040750C /* pl_ios.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = pl_ios.mm; sourceTree = "<group>"; };
 		D29889D326A7205E00F4007E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D29889D526A72D1B00F4007E /* SDL_uikitviewcontroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDL_uikitviewcontroller.swift; sourceTree = "<group>"; };
 		D29889D626A72D1B00F4007E /* raze-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "raze-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -1666,6 +1668,7 @@
 		D25F3A2526A68D16002CBE6A /* posix */ = {
 			isa = PBXGroup;
 			children = (
+				D28659DD26ADB96A0040750C /* uikit */,
 				D25F3A2626A68D16002CBE6A /* osx */,
 				D25F3A2926A68D16002CBE6A /* dikeys.h */,
 				D25F3A2A26A68D16002CBE6A /* i_system_posix.cpp */,
@@ -2574,6 +2577,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D28659DD26ADB96A0040750C /* uikit */ = {
+			isa = PBXGroup;
+			children = (
+				D28659DE26ADB96A0040750C /* pl_ios.mm */,
+			);
+			path = uikit;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2894,6 +2905,7 @@
 				D25F3DF426A68D16002CBE6A /* hw_clipper.cpp in Sources */,
 				D21F0F0926A759F0008B4E34 /* zcc-parse.c in Sources */,
 				D25F3E8426A68D16002CBE6A /* file_directory.cpp in Sources */,
+				D28659DF26ADB96A0040750C /* pl_ios.mm in Sources */,
 				D25F3EF826A68D16002CBE6A /* m_random.cpp in Sources */,
 				D25F3E0C26A68D16002CBE6A /* playmve.cpp in Sources */,
 				D25F3DC826A68D16002CBE6A /* screenjob.cpp in Sources */,

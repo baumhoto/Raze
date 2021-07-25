@@ -125,6 +125,10 @@ CUSTOM_CVAR(Int, uiscale, 0, CVAR_ARCHIVE | CVAR_NOINITCALL)
 
 EXTERN_CVAR(Bool, r_blendmethod)
 
+#ifdef IOS
+CVAR (Bool, vid_hidpi, false, CVAR_ARCHIVE|CVAR_GLOBALCONFIG)
+#endif
+
 int active_con_scale();
 
 #define DBGBREAK assert(0)
@@ -348,9 +352,14 @@ void V_InitScreenSize ()
 	{
 		height = (width * 6) / 8;
 	}
-	// Remember the passed arguments for the next time the game starts up windowed.
-	vid_defwidth = width;
-	vid_defheight = height;
+#ifdef IOS
+    vid_defwidth = GetScreenWidth(vid_hidpi);
+    vid_defheight = GetScreenHeight(vid_hidpi);
+#else
+    // Remember the passed arguments for the next time the game starts up windowed.
+    vid_defwidth = width;
+    vid_defheight = height;
+#endif
 }
 
 void V_InitScreen()
