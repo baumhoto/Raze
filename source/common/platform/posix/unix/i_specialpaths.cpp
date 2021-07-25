@@ -196,7 +196,11 @@ FString M_GetConfigPath(bool for_reading)
 
 FString M_GetScreenshotsPath()
 {
+#ifdef IOS
+    return NicePath("$HOME/Documents/screenshots/");
+#else
 	return NicePath("$HOME/" GAME_DIR "/screenshots/");
+#endif
 }
 
 //===========================================================================
@@ -210,7 +214,7 @@ FString M_GetScreenshotsPath()
 FString M_GetSavegamesPath()
 {
 #ifdef IOS
-    return NicePath("$HOME/Documents/Savegames/dummy/");
+    return NicePath("$HOME/Documents/Savegames/");
 #else
     return NicePath("$HOME/" GAME_DIR "/");
 #endif
@@ -226,7 +230,11 @@ FString M_GetSavegamesPath()
 
 FString M_GetDocumentsPath()
 {
+#ifdef IOS
+    return NicePath("$HOME/Documents/");
+#else
 	return NicePath("$HOME/" GAME_DIR "/");
+#endif
 }
 
 //===========================================================================
