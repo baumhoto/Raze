@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		D21F0F0926A759F0008B4E34 /* zcc-parse.c in Sources */ = {isa = PBXBuildFile; fileRef = D21F0F0726A759F0008B4E34 /* zcc-parse.c */; };
+		D21F435526B1951D00DC00DB /* libogg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D25F404626A6C132002CBE6A /* libogg.a */; };
+		D21F435F26B1953300DC00DB /* libsndfile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D21F435C26B1951D00DC00DB /* libsndfile.a */; };
+		D21F436026B1953400DC00DB /* libvorbis.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D21F435E26B1951D00DC00DB /* libvorbis.a */; };
+		D21F436126B1953400DC00DB /* libvorbisenc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D21F435B26B1951D00DC00DB /* libvorbisenc.a */; };
+		D21F436226B1953400DC00DB /* libFLAC.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D21F435926B1951D00DC00DB /* libFLAC.a */; };
+		D21F436326B1953400DC00DB /* libopus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D21F435826B1951D00DC00DB /* libopus.a */; };
+		D21F436426B1953500DC00DB /* libfluidsynth.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D21F435726B1951D00DC00DB /* libfluidsynth.a */; };
+		D21F436526B1953500DC00DB /* libintl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D21F435A26B1951D00DC00DB /* libintl.a */; };
+		D21F436626B1953500DC00DB /* libglib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D21F435D26B1951D00DC00DB /* libglib.a */; };
+		D21F436726B1953500DC00DB /* libzmusic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D21F435626B1951D00DC00DB /* libzmusic.a */; };
 		D25F38FB26A68CEC002CBE6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D25F38FA26A68CEC002CBE6A /* Assets.xcassets */; };
 		D25F38FE26A68CEC002CBE6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D25F38FC26A68CEC002CBE6A /* LaunchScreen.storyboard */; };
 		D25F3DBC26A68D16002CBE6A /* cheathandler.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D25F390826A68D15002CBE6A /* cheathandler.cpp */; };
@@ -363,7 +373,6 @@
 		D25F405626A6C13E002CBE6A /* libOSDependent.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D25F404226A6C132002CBE6A /* libOSDependent.a */; };
 		D25F405826A6C13E002CBE6A /* libSPIRV.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D25F404926A6C132002CBE6A /* libSPIRV.a */; };
 		D25F405926A6C13E002CBE6A /* libz.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D25F403E26A6C132002CBE6A /* libz.a */; };
-		D25F405C26A6C1D1002CBE6A /* libzmusiclite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D25F405B26A6C1C4002CBE6A /* libzmusiclite.a */; };
 		D25F405E26A6D623002CBE6A /* libvpx.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D25F405D26A6D615002CBE6A /* libvpx.a */; };
 		D27D0AF526A71C8E00B22804 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D27D0AF426A71C8E00B22804 /* OpenGLES.framework */; };
 		D28659DF26ADB96A0040750C /* pl_ios.mm in Sources */ = {isa = PBXBuildFile; fileRef = D28659DE26ADB96A0040750C /* pl_ios.mm */; };
@@ -391,6 +400,15 @@
 		D21F0F0626A75905008B4E34 /* zmusic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = zmusic.h; path = ../../bin/windows/zmusic/include/zmusic.h; sourceTree = "<group>"; };
 		D21F0F0726A759F0008B4E34 /* zcc-parse.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "zcc-parse.c"; sourceTree = "<group>"; };
 		D21F0F0826A759F0008B4E34 /* zcc-parse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "zcc-parse.h"; sourceTree = "<group>"; };
+		D21F435626B1951D00DC00DB /* libzmusic.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libzmusic.a; path = libs/libzmusic.a; sourceTree = "<group>"; };
+		D21F435726B1951D00DC00DB /* libfluidsynth.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfluidsynth.a; path = libs/libfluidsynth.a; sourceTree = "<group>"; };
+		D21F435826B1951D00DC00DB /* libopus.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopus.a; path = libs/libopus.a; sourceTree = "<group>"; };
+		D21F435926B1951D00DC00DB /* libFLAC.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFLAC.a; path = libs/libFLAC.a; sourceTree = "<group>"; };
+		D21F435A26B1951D00DC00DB /* libintl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libintl.a; path = libs/libintl.a; sourceTree = "<group>"; };
+		D21F435B26B1951D00DC00DB /* libvorbisenc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvorbisenc.a; path = libs/libvorbisenc.a; sourceTree = "<group>"; };
+		D21F435C26B1951D00DC00DB /* libsndfile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libsndfile.a; path = libs/libsndfile.a; sourceTree = "<group>"; };
+		D21F435D26B1951D00DC00DB /* libglib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglib.a; path = libs/libglib.a; sourceTree = "<group>"; };
+		D21F435E26B1951D00DC00DB /* libvorbis.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvorbis.a; path = libs/libvorbis.a; sourceTree = "<group>"; };
 		D25F38EE26A68CEC002CBE6A /* raze-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "raze-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D25F38FA26A68CEC002CBE6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D25F38FD26A68CEC002CBE6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -1125,15 +1143,18 @@
 			files = (
 				D29889D226A7201300F4007E /* libSDL2.a in Frameworks */,
 				D25F403326A6C0FA002CBE6A /* CoreGraphics.framework in Frameworks */,
+				D21F436626B1953500DC00DB /* libglib.a in Frameworks */,
 				D25F404F26A6C13E002CBE6A /* liblzma.a in Frameworks */,
 				D25F405426A6C13E002CBE6A /* libopenal.1.dylib in Frameworks */,
 				D25F403D26A6C121002CBE6A /* UIKit.framework in Frameworks */,
 				D27D0AF526A71C8E00B22804 /* OpenGLES.framework in Frameworks */,
+				D21F436526B1953500DC00DB /* libintl.a in Frameworks */,
+				D21F436026B1953400DC00DB /* libvorbis.a in Frameworks */,
 				D25F404E26A6C13E002CBE6A /* libjpeg.a in Frameworks */,
 				D25F405626A6C13E002CBE6A /* libOSDependent.a in Frameworks */,
 				D25F403926A6C111002CBE6A /* GameController.framework in Frameworks */,
+				D21F435F26B1953300DC00DB /* libsndfile.a in Frameworks */,
 				D25F403726A6C109002CBE6A /* CoreMotion.framework in Frameworks */,
-				D25F405C26A6C1D1002CBE6A /* libzmusiclite.a in Frameworks */,
 				D25F405326A6C13E002CBE6A /* libOGLCompiler.a in Frameworks */,
 				D25F404C26A6C13E002CBE6A /* libgdtoa.a in Frameworks */,
 				D25F403126A6C0F3002CBE6A /* CoreAudio.framework in Frameworks */,
@@ -1141,10 +1162,16 @@
 				D25F405926A6C13E002CBE6A /* libz.a in Frameworks */,
 				D25F405826A6C13E002CBE6A /* libSPIRV.a in Frameworks */,
 				D25F404D26A6C13E002CBE6A /* libglslang.a in Frameworks */,
+				D21F436126B1953400DC00DB /* libvorbisenc.a in Frameworks */,
 				D25F403526A6C102002CBE6A /* CoreHaptics.framework in Frameworks */,
+				D21F435526B1951D00DC00DB /* libogg.a in Frameworks */,
 				D25F402F26A6C0EC002CBE6A /* AVFoundation.framework in Frameworks */,
+				D21F436226B1953400DC00DB /* libFLAC.a in Frameworks */,
+				D21F436726B1953500DC00DB /* libzmusic.a in Frameworks */,
 				D25F405026A6C13E002CBE6A /* libMoltenVK.dylib in Frameworks */,
+				D21F436426B1953500DC00DB /* libfluidsynth.a in Frameworks */,
 				D25F405E26A6D623002CBE6A /* libvpx.a in Frameworks */,
+				D21F436326B1953400DC00DB /* libopus.a in Frameworks */,
 				D25F403B26A6C11B002CBE6A /* Metal.framework in Frameworks */,
 				D25F404B26A6C13E002CBE6A /* libbz2.a in Frameworks */,
 				D25F402D26A6C0E4002CBE6A /* AudioToolbox.framework in Frameworks */,
@@ -2547,6 +2574,15 @@
 		D25F402B26A6C0E4002CBE6A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D21F435926B1951D00DC00DB /* libFLAC.a */,
+				D21F435726B1951D00DC00DB /* libfluidsynth.a */,
+				D21F435D26B1951D00DC00DB /* libglib.a */,
+				D21F435A26B1951D00DC00DB /* libintl.a */,
+				D21F435826B1951D00DC00DB /* libopus.a */,
+				D21F435C26B1951D00DC00DB /* libsndfile.a */,
+				D21F435E26B1951D00DC00DB /* libvorbis.a */,
+				D21F435B26B1951D00DC00DB /* libvorbisenc.a */,
+				D21F435626B1951D00DC00DB /* libzmusic.a */,
 				D29889D326A7205E00F4007E /* QuartzCore.framework */,
 				D27D0AF426A71C8E00B22804 /* OpenGLES.framework */,
 				D25F405D26A6D615002CBE6A /* libvpx.a */,
