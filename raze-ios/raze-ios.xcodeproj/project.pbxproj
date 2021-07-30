@@ -379,6 +379,7 @@
 		D29889D226A7201300F4007E /* libSDL2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D25F404126A6C132002CBE6A /* libSDL2.a */; };
 		D29889D426A7205E00F4007E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D29889D326A7205E00F4007E /* QuartzCore.framework */; };
 		D29889D726A72D1B00F4007E /* SDL_uikitviewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29889D526A72D1B00F4007E /* SDL_uikitviewcontroller.swift */; };
+		D2C0D4FE26B4547C0044B958 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D2C0D4FD26B4547C0044B958 /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -1134,6 +1135,8 @@
 		D29889D326A7205E00F4007E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D29889D526A72D1B00F4007E /* SDL_uikitviewcontroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SDL_uikitviewcontroller.swift; sourceTree = "<group>"; };
 		D29889D626A72D1B00F4007E /* raze-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "raze-Bridging-Header.h"; sourceTree = "<group>"; };
+		D2C0D4FC26B453510044B958 /* pl_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pl_ios.h; sourceTree = "<group>"; };
+		D2C0D4FD26B4547C0044B958 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1203,6 +1206,7 @@
 		D25F38F026A68CEC002CBE6A /* raze-ios */ = {
 			isa = PBXGroup;
 			children = (
+				D2C0D4FD26B4547C0044B958 /* Settings.bundle */,
 				D29889D626A72D1B00F4007E /* raze-Bridging-Header.h */,
 				D29889D526A72D1B00F4007E /* SDL_uikitviewcontroller.swift */,
 				D25F38FA26A68CEC002CBE6A /* Assets.xcassets */,
@@ -2617,6 +2621,7 @@
 			isa = PBXGroup;
 			children = (
 				D28659DE26ADB96A0040750C /* pl_ios.mm */,
+				D2C0D4FC26B453510044B958 /* pl_ios.h */,
 			);
 			path = uikit;
 			sourceTree = "<group>";
@@ -2689,6 +2694,7 @@
 				D25F3E0126A68D16002CBE6A /* raze.icns in Resources */,
 				D25F3F0126A68D16002CBE6A /* LICENSE.txt in Resources */,
 				D25F38FB26A68CEC002CBE6A /* Assets.xcassets in Resources */,
+				D2C0D4FE26B4547C0044B958 /* Settings.bundle in Resources */,
 				D25F3ED826A68D16002CBE6A /* gl_extlist.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
