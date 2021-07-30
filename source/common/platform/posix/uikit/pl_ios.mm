@@ -21,3 +21,18 @@ int GetScreenHeight(bool retina) {
     
     return [[UIScreen mainScreen] bounds].size.height;
 }
+
+
+char* GetUserCommandLineFromSettings() {
+    long cmdIndex = [[NSUserDefaults standardUserDefaults] integerForKey:@"sys_commandlineindex"];
+    if(cmdIndex > 0)
+    {
+        NSString *key = [NSString stringWithFormat:@"sys_commandline%ld", cmdIndex];
+        NSString *commandLine = [[NSUserDefaults standardUserDefaults] stringForKey:key];
+        const char* result = [commandLine UTF8String];
+        return (char*)result;
+    }
+    
+    return NULL;
+}
+
