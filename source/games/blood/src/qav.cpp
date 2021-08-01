@@ -34,18 +34,16 @@ BEGIN_BLD_NS
 extern void (*qavClientCallback[])(int, void *);
 
 
-void DrawFrame(double x, double y, TILE_FRAME *pTile, int stat, int shade, int palnum, bool to3dview)
+void DrawFrame(double x, double y, double z, double a, TILE_FRAME *pTile, int stat, int shade, int palnum, bool to3dview)
 {
     stat |= pTile->stat;
-	x += pTile->x;
-	y += pTile->y;
     if (palnum <= 0) palnum = pTile->palnum;
 
     if (!to3dview)
     {
 		auto tex = tileGetTexture(pTile->picnum);
-		double scale = pTile->z/65536.;
-		double angle = pTile->angle * BAngToDegree;
+		double scale = z * (1. / 65536.);
+		double angle = a * BAngToDegree;
 		int renderstyle = (stat & RS_NOMASK)? STYLE_Normal : STYLE_Translucent;
 		double alpha = (stat & RS_TRANS1)? glblend[0].def[!!(stat & RS_TRANS2)].alpha : 1.;
 		int pin = (stat & kQavOrientationLeft)? -1 : (stat & RS_ALIGN_R)? 1:0;
@@ -70,26 +68,91 @@ void DrawFrame(double x, double y, TILE_FRAME *pTile, int stat, int shade, int p
 		if ((stat & kQavOrientationLeft)) stat |= RS_ALIGN_L;
         stat &= ~kQavOrientationLeft;
 
-		hud_drawsprite(x, y, pTile->z, pTile->angle, pTile->picnum, pTile->shade + shade, palnum, stat);
+		hud_drawsprite(x, y, z, a, pTile->picnum, pTile->shade + shade, palnum, stat);
     }
 }
 
-void QAV::Draw(double x, double y, int ticks, int stat, int shade, int palnum, bool to3dview)
+void QAV::Draw(double x, double y, int ticks, int stat, int shade, int palnum, bool to3dview, double const smoothratio, bool const menudrip)
 {
     assert(ticksPerFrame > 0);
+
     int nFrame = ticks / ticksPerFrame;
     assert(nFrame >= 0 && nFrame < nFrames);
-    FRAMEINFO *pFrame = &frames[nFrame];
+    FRAMEINFO *thisFrame = &frames[nFrame];
+
+    if ((nFrame == (nFrames - 1)) && !lastframetic)
+    {
+        lastframetic = ticks;
+    }
+    else if (lastframetic > ticks)
+    {
+        lastframetic = 0;
+    }
+
+    int oFrame = nFrame == 0 || (lastframetic && ticks > lastframetic) ? nFrame : nFrame - 1;
+    assert(oFrame >= 0 && oFrame < nFrames);
+    FRAMEINFO *prevFrame = &frames[oFrame];
+
+    auto drawTile = [&](TILE_FRAME *thisTile, TILE_FRAME *prevTile, bool const interpolate = true)
+    {
+        double tileX = x;
+        double tileY = y;
+        double tileZ;
+        double tileA;
+
+        if (cl_bloodhudinterp && prevTile && cl_hudinterpolation && (nFrames > 1) && (nFrame != oFrame) && (smoothratio != MaxSmoothRatio) && interpolate)
+        {
+            tileX += interpolatedvaluef(prevTile->x, thisTile->x, smoothratio);
+            tileY += interpolatedvaluef(prevTile->y, thisTile->y, smoothratio);
+            tileZ = interpolatedvaluef(prevTile->z, thisTile->z, smoothratio);
+            tileA = interpolatedangle(buildang(prevTile->angle), buildang(thisTile->angle), smoothratio).asbuildf();
+        }
+        else
+        {
+            tileX += thisTile->x;
+            tileY += thisTile->y;
+            tileZ = thisTile->z;
+            tileA = thisTile->angle;
+        }
+
+        DrawFrame(tileX, tileY, tileZ, tileA, thisTile, stat, shade, palnum, to3dview);
+    };
+
     for (int i = 0; i < 8; i++)
     {
-        if (pFrame->tiles[i].picnum > 0)
-            DrawFrame(x, y, &pFrame->tiles[i], stat, shade, palnum, to3dview);
-    }
-}
+        TILE_FRAME *thisTile = &thisFrame->tiles[i];
+        TILE_FRAME *prevTile = nullptr;
 
-void QAV::Draw(int ticks, int stat, int shade, int palnum, bool to3dview)
-{
-    Draw(x, y, ticks, stat, shade, palnum, to3dview);
+        if (thisTile->picnum > 0)
+        {
+            // Menu's blood drip requires special treatment.
+            if (menudrip)
+            {
+                if (i != 0)
+                {
+                    // Find previous frame by iterating all previous frame's tiles and match on the consistent x coordinate.
+                    // Tile indices can change between frames for no reason, we need to accomodate that.
+                    for (int j = 0; j < 8; j++) if (thisTile->x == prevFrame->tiles[j].x)
+                    {
+                        prevTile = &prevFrame->tiles[j];
+                        break;
+                    }
+
+                    drawTile(thisTile, prevTile, true);
+                }
+                else
+                {
+                    // First index is always the dripping bar at the top.
+                    drawTile(thisTile, prevTile, false);
+                }
+            }
+            else
+            {
+                prevTile = &prevFrame->tiles[i];
+                drawTile(thisTile, prevTile, thisTile->picnum == prevTile->picnum);
+            }
+        }
+    }
 }
 
 
