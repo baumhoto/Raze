@@ -22,6 +22,14 @@ int GetScreenHeight(bool retina) {
     return [[UIScreen mainScreen] bounds].size.height;
 }
 
+long GetMaximumFps() {
+    return [[UIScreen mainScreen] maximumFramesPerSecond];
+}
+
+void openUrl() {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://github.com/baumhoto/gzDoom/blob/master/INSTALL.md"]];
+}
+
 
 char* GetUserCommandLineFromSettings() {
     long cmdIndex = [[NSUserDefaults standardUserDefaults] integerForKey:@"sys_commandlineindex"];

@@ -218,9 +218,8 @@ int main (int argc, char **argv)
 	I_StartupJoysticks();
 
 	const int result = GameMain();
+#ifndef IOS
     SDL_Quit();
-#ifdef IOS
-    exit (0);
 #endif
 	return result;
 }

@@ -19,6 +19,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 */
 //-------------------------------------------------------------------------
+#include <SDL.h>
 
 #include <stdexcept>
 #include "gamecontrol.h"
@@ -78,6 +79,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 #include "hw_voxels.h"
 #include "hw_palmanager.h"
 #include "razefont.h"
+#include "pl_ios.h"
 
 CVAR(Bool, autoloadlights, true, CVAR_ARCHIVE|CVAR_GLOBALCONFIG)
 CVAR(Bool, autoloadbrightmaps, true, CVAR_ARCHIVE | CVAR_GLOBALCONFIG)
@@ -151,10 +153,15 @@ bool AppActive = true;
 
 FString currentGame;
 FString LumpFilter;
+bool shouldExit = false;
 
 CVAR(Bool, queryiwad, true, CVAR_ARCHIVE | CVAR_GLOBALCONFIG);
 CVAR(String, defaultiwad, "", CVAR_ARCHIVE | CVAR_GLOBALCONFIG);
 CVAR(Bool, disableautoload, false, CVAR_ARCHIVE | CVAR_NOINITCALL | CVAR_GLOBALCONFIG)
+#ifdef IOS
+EXTERN_CVAR(Int, vid_maxfps)
+extern SDL_Window* I_GetWindow();
+#endif
 
 extern int hud_size_max;
 
@@ -530,12 +537,77 @@ int RunGame();
 void System_MenuClosed();
 void System_MenuDim();
 
+
+#ifdef IOS
+SystemCallbacks sysCallbacks =
+{
+    System_WantGuiCapture,
+    System_WantLeftButton,
+    System_NetGame,
+    System_WantNativeMouse,
+    System_CaptureModeInGame,
+    nullptr,
+    nullptr,
+    nullptr,
+    System_DisableTextureFilter,
+    nullptr,
+    System_GetSceneRect,
+    nullptr,
+    System_MenuDim,
+    nullptr,
+    System_DispatchEvent,
+    validFilter,
+    StrTable_GetGender,
+    System_MenuClosed,
+    nullptr,
+    nullptr,
+    PreBindTexture,
+    FontCharCreated,
+    System_ToggleFullConsole,
+    System_StartCutscene,
+};
+#endif
+
+void D_CleanupInternal() {
+    //DeleteScreenJob();
+    DeinitMenus();
+    if (StatusBar) StatusBar->Destroy();
+    StatusBar = nullptr;
+    if (gi)
+    {
+        gi->FreeGameData();    // Must be done before taking down any subsystems.
+    }
+    S_StopMusic(true);
+    if (soundEngine) delete soundEngine;
+    soundEngine = nullptr;
+    I_CloseSound();
+    I_ShutdownInput();
+    G_SaveConfig();
+    C_DeinitConsole();
+    V_ClearFonts();
+    voxClear();
+    ClearPalManager();
+    TexMan.DeleteAll();
+    TileFiles.CloseAll();    // delete the texture data before shutting down graphics.
+    I_ShutdownGraphics();
+    freeallmodels();
+    if (gi)
+    {
+        delete gi;
+        gi = nullptr;
+    }
+    DeleteStartupScreen();
+    PClass::StaticShutdown();
+    if (Args) delete Args;
+}
+
 int GameMain()
 {
 	int r;
 
 	SetConsoleNotifyBuffer();
-	sysCallbacks =
+#ifndef IOS
+    SystemCallbacks sysCallbacks =
 	{
 		System_WantGuiCapture,
 		System_WantLeftButton,
@@ -562,6 +634,7 @@ int GameMain()
 		System_ToggleFullConsole,
 		System_StartCutscene,
 	};
+#endif
 
 	try
 	{
@@ -571,45 +644,26 @@ int GameMain()
 	{
 		// Just let the rest of the function execute.
 		r = exit.Reason();
+        shouldExit = true;
 	}
 	catch (const std::exception& err)
 	{
 		// shut down critical systems before showing a message box.
 		I_ShowFatalError(err.what());
 		r = -1;
+        shouldExit = true;
 	}
-	//DeleteScreenJob();
-	DeinitMenus();
-	if (StatusBar) StatusBar->Destroy();
-	StatusBar = nullptr;
-	if (gi)
-	{
-		gi->FreeGameData();	// Must be done before taking down any subsystems.
-	}
-	S_StopMusic(true);
-	if (soundEngine) delete soundEngine;
-	soundEngine = nullptr;
-	I_CloseSound();
-	I_ShutdownInput();
-	G_SaveConfig();
-	C_DeinitConsole();
-	V_ClearFonts();
-	voxClear();
-	ClearPalManager();
-	TexMan.DeleteAll();
-	TileFiles.CloseAll();	// delete the texture data before shutting down graphics.
-	I_ShutdownGraphics();
-	freeallmodels();
-	if (gi)
-	{
-		delete gi;
-		gi = nullptr;
-	}
-	DeleteStartupScreen();
-	PClass::StaticShutdown();
-	if (Args) delete Args;
+    if(shouldExit){
+        D_CleanupInternal();
+#ifdef IOS
+        exit(0);
+#endif
+    }
 	return r;
 }
+
+
+
 
 //==========================================================================
 //
@@ -656,6 +710,12 @@ static TArray<GrpEntry> SetupGame()
 		I_Error("Unable to find any game data. Please verify your settings."
 #ifdef WIN32
 		);
+#elif IOS
+        "\n\n This is expected if you started the app for the first time.\n\n"
+                      "Please select 'Open instructions' to see detailed instructions on howto setup Raze on your device.\n\n"
+                      "Select 'Ok' to close this dialog\n\n"
+                      "The app will be closed."
+        );
 #else
 		"\nInstall game data files in subfolders of '%s'\n\n", M_GetAppDataPath(false).GetChars());
 #endif
@@ -907,6 +967,29 @@ static void InitTextures()
 	TileFiles.SetBackup();
 }
 
+void ShowFrame(void*)
+{
+    try {
+            if(shouldExit) {
+                //D_Cleanup();
+                D_CleanupInternal();
+                exit(0);
+            }
+            else {
+                MainLoop();
+            }
+        }
+        catch (const CExitEvent &exit)    // This is a regular exit initiated from deeply nested code.
+        {
+            shouldExit = true;
+        }
+        catch (const std::exception &error)
+        {
+            shouldExit = false;
+        }
+}
+
+
 //==========================================================================
 //
 //
@@ -1078,8 +1161,19 @@ int RunGame()
 
 	D_CheckNetGame();
 	UpdateGenericUI(ui_generic);
+    
+#ifndef IOS
 	MainLoop();
-	return 0; // this is never reached. MainLoop only exits via exception.
+#else
+    int maxFpsForDisplay = (int)GetMaximumFps();
+    int refreshInterval = maxFpsForDisplay / vid_maxfps;
+    if (refreshInterval < 1) {
+        refreshInterval = 1;
+    }
+    // refreshInterval 1 = Displays Max FPS, 2 = Display Halfs FPS etc. Values < 0 are not allowed
+    SDL_iPhoneSetAnimationCallback(I_GetWindow(), refreshInterval, ShowFrame, NULL);
+#endif
+    return 0; // this is never reached. MainLoop only exits via exception.
 }
 
 //---------------------------------------------------------------------------

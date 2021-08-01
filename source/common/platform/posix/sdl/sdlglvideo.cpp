@@ -787,3 +787,7 @@ void I_SetWindowTitle(const char* caption)
 #endif
 }
 
+SDL_Window* I_GetWindow()
+{
+    return Priv::window;
+}

@@ -676,7 +676,9 @@ void MainLoop ()
 	int lasttic = 0;
 
 	// Clamp the timer to TICRATE until the playloop has been entered.
+#ifndef IOS
 	r_NoInterpolate = true;
+#endif
 
 	if (userConfig.CommandMap.IsNotEmpty())
 	{
@@ -731,6 +733,9 @@ void MainLoop ()
 			M_ClearMenus();
 			C_FullConsole();
 		}
+#ifdef IOS
+        return;
+#endif
 	}
 }
 

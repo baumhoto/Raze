@@ -58,6 +58,9 @@
 #include "c_cvars.h"
 #include "palutil.h"
 #include "st_start.h"
+#ifdef IOS
+#include "pl_ios.h"
+#endif
 
 
 #ifndef NO_GTK
@@ -119,10 +122,35 @@ void Unix_I_FatalError(const char* errortext)
 }
 #endif
 
+void iOS_I_ShowFatalError(const char *message) {
+    const SDL_MessageBoxButtonData buttons[] = {
+              { /* .flags, .buttonid, .text */        0, 0, "Ok" },
+              { /* .flags, .buttonid, .text */        0, 1, "Open instructions" },
+          };
+          const SDL_MessageBoxData messageboxdata = {
+              SDL_MESSAGEBOX_INFORMATION, /* .flags */
+              NULL, /* .window */
+              "Raze Error", /* .title */
+              message, /* .message */
+              SDL_arraysize(buttons), /* .numbuttons */
+              buttons, /* .buttons */
+              NULL
+          };
+          int buttonid;
+       if (SDL_ShowMessageBox(&messageboxdata, &buttonid) < 0) {
+          }
+       if (buttonid == 1)
+       {
+           openUrl();
+       }
+}
+
 
 void I_ShowFatalError(const char *message)
 {
-#ifdef __APPLE__
+#if IOS
+    iOS_I_ShowFatalError(message);
+#elif __APPLE__
 	Mac_I_FatalError(message);
 #elif defined __unix__
 	Unix_I_FatalError(message);
