@@ -63,7 +63,7 @@
 #include "mapinfo.h"
 #include "razefont.h"
 
-#include "../version.h"
+#include "version.h"
 
 EXTERN_CVAR (Bool, am_showmonsters)
 EXTERN_CVAR (Bool, am_showsecrets)
